@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio 3</title>
+</head>
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    .container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .side-nav{
+        background-color: blue;
+        width: 12%;
+        height: 100vh;
+        padding: 50px;
+        margin-right: 10px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        position: fixed;
+    }
+
+    nav ul li{
+        list-style: none;
+        margin: 10px;
+        width: 100px;
+    }
+
+    nav ul li a{
+        font-size: 17px;
+        text-decoration: none;
+        color: white;
+        line-height: 3em;
+    }
+
+    nav ul li a:hover{
+        color: rgb(131, 131, 199);
+        transition: .3s ease;
+        padding-left: 10px;
+    }
+
+    .contact button{
+        width: 150px;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: white;
+        border: none;
+        outline: none;
+        font-size: 17px;
+        color: blue;
+    }
+
+    .contact button:hover{
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+    }
+
+    .main{
+        background-color: white;
+        width: 100%;
+        margin-left: 12%;
+    }
+
+    .home{
+        padding: 7em;
+    }
+
+    .home h3{
+        font-size: 20px;
+        color: blue;
+        margin-bottom: 30px;
+    }
+
+    span{
+        color: blue;
+    }
+
+    .home h1{
+        font-weight: bold;
+        font-size: 6em;
+        margin-bottom: 30px;
+        margin-left: 15px;
+    }
+
+    .home h2{
+        font-size: 3em;
+        margin-bottom: 30px;
+    }
+
+    .home p{
+        font-size: 18px;
+        width: 700px;
+        color: rgb(142, 142, 228);
+    }
+
+    .about{
+        display: flex;
+        justify-content: space-between;
+        padding: 60px;
+        margin: 20px;
+    }
+
+    .about img{
+        width: 20em;
+    }
+
+    .about-box{
+        background-color: blue;
+        padding: 20px;
+        margin: 70px 0 70px 0;
+    }
+
+    .about-box h1{
+        color: white;
+        text-align: center;
+        font-size: 50px;
+        margin: 30px;
+        margin-left: 60px;
+    }
+
+    .about-box p{
+        color: white;
+        font-size: 17px;
+        line-height: 2em;
+        word-spacing: 2px;
+    }
+
+    .socials{
+        width: 100%;
+        background-color: blue;
+        padding: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .socials nav ul li{
+        display: inline-block;
+    }
+
+    .socials a{
+        background-color: white;
+        margin: 10px;
+        text-decoration: none;
+        font-size: 17px;
+        padding: 10px;
+        color: blue;
+        width: 200px;
+        text-align: center;
+    }
+
+    .socials a:hover{
+        background-color: blue;
+        color: white;
+        border: 1px solid white;
+    }
+
+    .skills{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .skills h1{
+        color: blue;
+        text-align: center;
+        font-size: 50px;
+        margin: 30px;
+    }
+
+    .skills h3{
+        color: rgb(142, 142, 228);
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .skill-cont{
+        width: 50em;
+        margin: 10px;
+        background-color: lightblue;
+    }
+
+    .html-skill-measure{
+        background-color: blue;
+        height: 100%;
+        width: 70%;
+        text-align: center;
+        color: white;
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+    .css-skill-measure{
+        background-color: blue;
+        height: 100%;
+        width: 80%;
+        text-align: center;
+        color: white;
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+    .python-skill-measure{
+        background-color: blue;
+        height: 100%;
+        width: 75%;
+        text-align: center;
+        color: white;
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+    .js-skill-measure{
+        background-color: blue;
+        height: 100%;
+        width: 40%;
+        text-align: center;
+        color: white;
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+    .node-skill-measure{
+        background-color: blue;
+        height: 100%;
+        width: 5%;
+        text-align: center;
+        color: white;
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+    .react-skill-measure{
+        background-color: blue;
+        height: 100%;
+        width: 5%;
+        text-align: center;
+        color: white;
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+
+    .skill-icons{
+        display: flex;
+        justify-content: center;
+    }
+
+    .skill-icons img{
+        width: 100px;
+        margin: 10px;
+    }
+
+    .skill-icons, .services-container, .projects-container{
+        max-width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .services{
+        background-color: blue;
+        padding: 20px;
+    }
+
+    .services h1{
+        color: white;
+        text-align: center;
+        font-size: 50px;
+        margin: 30px;
+    }
+
+    .services h3{
+        color: white;
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .services-container{
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .service-box{
+        background-color: white;
+        width: 300px;
+        height: 400px;
+        padding: 30px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .service-box h2{
+        text-align: center;
+        font-weight: bold;
+        margin: 5px;
+        margin-bottom: 20px;
+        color: blue;
+    }
+
+    .service-box p{
+        font-size: 17px;
+        margin: 5px;
+    }
+
+    .projects{
+        background-color: white;
+        padding: 20px;
+    }
+
+    .projects h1{
+        color: blue;
+        text-align: center;
+        font-size: 50px;
+        margin: 30px;
+    }
+
+    .projects h3{
+        color: blue;
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .projects-container{
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .project-box{
+        background-color: blue;
+        width: 300px;
+        height: 400px;
+        padding: 30px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .project-box h2{
+        text-align: center;
+        font-weight: bold;
+        margin: 5px;
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    .project-box p{
+        font-size: 17px;
+        margin: 5px;
+    }
+
+    .project-box button{
+        width: 100%;
+        padding: 10px;
+        background-color: white;
+        color: blue;
+        font-size: 17px;
+        border: none;
+        outline: none;
+    }
+
+    footer{
+        background-color: blue;
+        width: 100%;
+        padding: 50px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    footer h3{
+        color: pink;
+        border-bottom: 2px solid white;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    footer nav ul li a{
+        color: white;
+        font-size: 16px;
+        line-height: 0;
+    }
+
+    footer nav ul li a:hover{
+        color: pink;
+    }
+
+</style>
+<body>
+
+    <div class="container">
+        <div class="side-nav">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#footer">Footer</a></li>
+                </ul>
+            </nav>
+    
+            <div class="contact">
+                <button>Download CV</button> <br>
+                <a href="mailto:jawadnassam264@gmail.com"><button>Hire Me</button></a>
+            </div>
+        </div>
+    
+        <div class="main">
+            <section class="home" id="home">
+                <h3>Hi there, I am</h3>
+                <h1>Nassam Mohammed Jawad</h1>
+                <h2>I am a <span>Web Developer</span></h2>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, deleniti incidunt. Labore, vero, dolore quisquam modi eius eligendi doloribus aliquam reprehenderit cum ipsa reiciendis! Eius ea molestias aspernatur reiciendis et!
+                </p>
+            </section>
+            <section class="about" id="about">
+                <img src="/assets/jawad.jpg" alt="">
+
+                <div class="about-box">
+                    <h1>About Me</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum tempore explicabo vel expedita natus, non ullam quas incidunt praesentium, rerum soluta laudantium? Perspiciatis alias, vitae molestiae distinctio ex officia debitis! <br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro voluptatum facere adipisci mollitia repudiandae maxime odit nihil, obcaecati necessitatibus velit, cum amet illo quidem assumenda placeat. Consequatur necessitatibus cupiditate culpa. <br>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis sapiente nulla facilis libero et, velit eos, officiis, quia laudantium perspiciatis officia laborum veniam sint tempore consequatur! Dolor magni voluptates officia.
+                    </p>
+                </div>
+            </section>
+
+            <section class="socials">
+                <h3>Get In touch with me on these platforms</h3> <br>
+                <nav>
+                    <ul>
+                        <li><a href="">Facebook</a></li>
+                        <li><a href="">LinkedIn</a></li>
+                        <li><a href="">YouTube</a></li>
+                        <li><a href="">GitHub</a></li>
+                        <li><a href="">Twitter</a></li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section class="skills" id="skills">
+                <h1>My Skills</h1>
+                <h3>Programming Languages and Frameworks I work with</h3>
+                <div class="progress">
+                    <div>
+                        HTML <div class="skill-cont">
+                                <div class="html-skill-measure">70%</div>
+                            </div>
+                    </div>
+
+                    <div>
+                        CSS <div class="skill-cont">
+                                <div class="css-skill-measure">80%</div>
+                            </div>
+                    </div>
+                    
+                    <div>
+                        PYTHON <div class="skill-cont">
+                                <div class="python-skill-measure">75%</div>
+                            </div>
+                    </div>
+                    
+                    <div>
+                        JAVASCRIPT
+                        <div class="skill-cont">
+                            <div class="js-skill-measure">40%</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        NODE.JS<div class="skill-cont">
+                            <div class="node-skill-measure">5%</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        REACT<div class="skill-cont">
+                            <div class="react-skill-measure">5%</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-icons">
+                        <div><img src="/assets/html5.png" alt=""></div>
+                        <div><img src="/assets/css.png" alt=""></div>
+                        <div><img src="/assets/python.jfif" alt=""></div>
+                        <div><img src="/assets/js.png" alt=""></div>
+                        <div><img src="/assets/react.png" alt=""></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="services" id="services">
+                <h1>Services</h1>
+                <h3>hgfhfgh</h3>
+
+                <div class="services-container">
+                    <div class="service-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                    </div>
+
+                    <div class="service-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                    </div>
+
+                    <div class="service-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                    </div>
+
+                    <div class="service-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                    </div>
+
+                    <div class="service-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                    </div>
+                    
+                    <div class="service-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="projects" id="projects">
+                <h1>Completed Projects</h1>
+                <h3>hgfhfgh</h3>
+
+                <div class="projects-container">
+                    <div class="project-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                        <a href=""><button>visit site</button></a>
+                    </div>
+
+                    <div class="project-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                        <button>visit site</button>
+                    </div>
+
+                    <div class="project-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                        <button>visit site</button>
+                    </div>
+
+                    <div class="project-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                        <button>visit site</button>
+                    </div>
+
+                    <div class="project-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                        <button>visit site</button>
+                    </div>
+
+                    <div class="project-box">
+                        <h2>Web Development</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis alias ipsa reprehenderit. Est repellat magni non ut architecto, iste praesentium obcaecati voluptates assumenda. Natus magnam obcaecati rem! Libero, ratione.
+                        </p>
+                        <button>visit site</button>
+                    </div>
+                </div>
+            </section>
+
+            <footer id="footer">
+                <div>
+                    <h3>Worked With</h3>
+                    <nav>
+                        <ul>
+                            <li><a href="">3Farmate</a></li>
+                            <li><a href="">YomYom</a></li>
+                            <li><a href="">SoftTribe</a></li>
+                            <li><a href="">FarmerLine</a></li>
+                            <li><a href="">Zeepay</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div>
+                    <h3>Company</h3>
+                    <nav>
+                        <ul>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">About Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div>
+                    <h3>Social Links</h3>
+                    <nav>
+                        <ul>
+                            <li><a href="">Facebook</a></li>
+                            <li><a href="">Twitter</a></li>
+                            <li><a href="">LinkedIn</a></li>
+                            <li><a href="">GitHub</a></li>
+                            <li><a href="">YouTube</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
